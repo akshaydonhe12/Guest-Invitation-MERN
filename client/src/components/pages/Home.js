@@ -3,6 +3,8 @@ import GuestForm from '../guest/GuestForm';
 import GuestCounter from '../guest/GuestCounter';
 import GuestFilter from '../guest/GuestFilter';
 import GuestSearch from '../guest/GuestSearch';
+import Guests from '../guest/Guests';
+
 
 
 
@@ -19,6 +21,7 @@ const Home = () => {
           <GuestForm />
           <GuestCounter />
     </div>
+          <Guests />
   </div>
   )
 }
