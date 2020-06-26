@@ -1,7 +1,7 @@
   
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 body{
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'PT Serif', serif;
   position: relative;
 }
 *{
@@ -10,12 +10,13 @@ body{
   padding: 0;
  }
  :root {
-  --primary-color: #043a5a;
+  --primary-color: #092532;
   --dark-color: #333;
   --light-color: #f4f4f4;
   --danger-color: #dc3545;
   --success-color: #c0bfbd;
   --xxx-color:#b5b8b7;
+  
 }
 
 /**************Navbar ******************/
