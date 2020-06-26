@@ -22,7 +22,7 @@ const Guest = () => {
       </div>
       <div className="card-body">
         <h2>Prashant Paddune</h2>
-        <span className='badge red'>'Non-Veg'</span>
+        <span className='badge red'>Non-Veg</span>
         <div className="contact">
           <i className="fas fa-phone-alt" />
           <p>9876543210</p>
