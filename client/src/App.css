@@ -119,7 +119,7 @@ form {
   cursor: pointer;
     }
 .options label:hover {
-      color:rgb(150,150,150);
+      color:rgb(128,128,128);
       transition: all 0.3s ease 0s;
         }
 .options i {
