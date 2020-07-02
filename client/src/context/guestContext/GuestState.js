@@ -9,7 +9,7 @@ const GuestState = (props) => {
                 id:1,
                 name: "Akshay Donhe",
                 phone: "98765848250",
-                dietary: "non-veg",
+                dietary: "Non-Veg",
                 isconfirmed: true
             },
 
@@ -17,7 +17,7 @@ const GuestState = (props) => {
                 id:2,
                 name: "Prashant Paddune",
                 phone: "98765848123",
-                dietary: "veg",
+                dietary: "pescatarian",
                 isconfirmed: false
             },
 
@@ -25,7 +25,7 @@ const GuestState = (props) => {
                 id:2,
                 name: "Mihir Panchal",
                 phone: "98765848214",
-                dietary: "veg",
+                dietary: "Vegan",
                 isconfirmed: false
             },
         ]
