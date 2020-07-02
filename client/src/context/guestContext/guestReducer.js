@@ -7,10 +7,10 @@ import {
 export default (state, {type, payload}) => {
     switch(type) {
         case SEARCH_GUEST:
-            const regex = new RegExp(`${payload}`, 'gi')
+            const reg = new RegExp(`${payload}`, 'gi')
             return {
                 ...state,
-                searchGuest: state.guests.filter(guest => guest.name.match(regex))
+                search: state.guests.filter(guest => guest.name.match(reg))
             }
         
         case CLEAR_SEARCH: 

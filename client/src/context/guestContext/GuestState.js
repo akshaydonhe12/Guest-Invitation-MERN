@@ -55,7 +55,8 @@ const GuestState = (props) => {
 
   const searchGuest = (guest) => {
     dispatch({
-        type: SEARCH_GUEST
+        type: SEARCH_GUEST,
+        payload: guest
     })
 }
 
