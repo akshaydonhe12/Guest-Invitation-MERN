@@ -4,6 +4,7 @@ import guestReducer from './guestReducer';
 
 const GuestState = (props) => {
     const initialState = {
+        filterGuest: false,
         guests: [
             {
                 id:1,

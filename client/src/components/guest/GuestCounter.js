@@ -9,8 +9,7 @@ const GuestCounter = () => {
   const invitedByDiet = (type) => guests.filter(guest => guest.dietary === type).length
   const attendingdByDiet = (type) => attending.filter(guest => guest.dietary === type).length
 
-
-
+  
   return (
     <div>
     <table>
