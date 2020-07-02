@@ -17,7 +17,7 @@ const GuestState = (props) => {
                 id:2,
                 name: "Prashant Paddune",
                 phone: "98765848123",
-                dietary: "pescatarian",
+                dietary: "Pescetarians",
                 isconfirmed: false
             },
 
