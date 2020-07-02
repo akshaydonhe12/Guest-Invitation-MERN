@@ -15,8 +15,16 @@ const GuestState = (props) => {
 
             {
                 id:2,
-                name: "Mihir Panchal",
+                name: "Prashant Paddune",
                 phone: "98765848123",
+                dietary: "veg",
+                isconfirmed: false
+            },
+
+            {
+                id:2,
+                name: "Mihir Panchal",
+                phone: "98765848214",
                 dietary: "veg",
                 isconfirmed: false
             },
