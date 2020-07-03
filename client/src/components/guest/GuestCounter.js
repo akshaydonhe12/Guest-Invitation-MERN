@@ -4,7 +4,7 @@ import GuestContext from '../../context/guestContext/guestContext';
 const GuestCounter = () => {
   const {guests} = useContext (GuestContext);
   const totalInvited = guests.length
-  const attending = guests.filter(guests => guests.isconfirmed)
+  const attending = guests.filter(guest => guest.isconfirmed);
   const totalAttending = attending.length
   const invitedByDiet = (type) => guests.filter(guest => guest.dietary === type).length
   const attendingdByDiet = (type) => attending.filter(guest => guest.dietary === type).length

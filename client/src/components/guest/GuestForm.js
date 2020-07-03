@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import GuestContext from '../../context/guestContext/guestContext';
 
 const GuestForm = () => {
+  const{addGuest} = useContext(GuestContext)
   const [guest, setGuest] = useState({
     name:'',
     phone:'',
@@ -19,6 +21,7 @@ const handelChange = e => {
 const onsubmit = e => {
   e.preventDefault()
  {/* console.log(guest) */}
+  addGuest(guest)
   setGuest({
     name:'',
     phone:'',

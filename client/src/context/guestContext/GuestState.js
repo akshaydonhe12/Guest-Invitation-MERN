@@ -84,8 +84,8 @@ const clearSearch = () => {
          guests: state.guests,
          filterGuest:state.filterGuest,
          search:state.search,
-         toggleFilter,
          addGuest,
+         toggleFilter,
          searchGuest,
          clearSearch
      }}
