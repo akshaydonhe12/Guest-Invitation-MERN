@@ -7,13 +7,17 @@ import {
     CLEAR_SEARCH,
     ADD_GUEST,
     REMOVE_GUEST,
-    UPDATE_GUEST
+    UPDATE_GUEST,
+    EDIT_GUEST,
+    CLEAR_GUEST
 } from '../types';
 
 const GuestState = (props) => {
     const initialState = {
         filterGuest: false,
         search:null,
+        edit:null,
+
         guests: [
             {
                 id:1,
@@ -77,6 +81,21 @@ const GuestState = (props) => {
     })
   }
 
+  //EDIT_GUEST
+  const editGuest = (guest) => {
+    dispatch({
+        type: EDIT_GUEST,
+        payload: guest
+    })
+  }
+
+  //CLEAR_GUEST
+  const clearEdit = () => {
+    dispatch({
+        type: CLEAR_GUEST,
+    })
+  }
+
   //TOOGGLE
   const toggleFilter = () => {
       dispatch({
@@ -108,6 +127,8 @@ const clearSearch = () => {
          addGuest,
          removeGuest,
          updateGuest,
+         editGuest,
+         clearEdit,
          toggleFilter,
          searchGuest,
          clearSearch
