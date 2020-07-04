@@ -5,7 +5,8 @@ import {
     TOGGLE_FILTER,
     SEARCH_GUEST,
     CLEAR_SEARCH,
-    ADD_GUEST
+    ADD_GUEST,
+    REMOVE_GUEST
 } from '../types';
 
 const GuestState = (props) => {
@@ -58,6 +59,13 @@ const GuestState = (props) => {
     })
   }
 
+  const removeGuest = (id) => {
+      dispatch({
+          type: REMOVE_GUEST,
+          payload:id
+      })
+  }
+
   const toggleFilter = () => {
       dispatch({
           type: TOGGLE_FILTER
@@ -85,6 +93,7 @@ const clearSearch = () => {
          filterGuest:state.filterGuest,
          search:state.search,
          addGuest,
+         removeGuest,
          toggleFilter,
          searchGuest,
          clearSearch
