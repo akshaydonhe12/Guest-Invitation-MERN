@@ -5,7 +5,7 @@
  export const REMOVE_GUEST = 'REMOVE_GUEST';
  export const UPDATE_GUEST = 'UPDATE_GUEST';
  export const EDIT_GUEST = 'EDIT_GUEST';
- export const CLEAR_GUEST = 'CLEAR_GUEST';
+ export const CLEAR_EDIT = 'CLEAR_EDIT';
 
 
 

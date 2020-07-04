@@ -1,13 +1,27 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import GuestContext from '../../context/guestContext/guestContext';
 
 const GuestForm = () => {
-  const{addGuest} = useContext(GuestContext)
+  const{addGuest, edit} = useContext(GuestContext)
+
+  useEffect(()=>{
+    if(edit !== null){
+      setGuest(edit)
+    } else{
+      setGuest({
+        name:'',
+        phone:'',
+        dietary:'Non-Veg'
+      })
+    }
+  },[edit])
+
   const [guest, setGuest] = useState({
     name:'',
     phone:'',
     dietary:'Non-Veg'
   })
+
 
 const {name, phone, dietary} = guest
 
@@ -39,17 +53,17 @@ return (
 
     <div className="options">
       <label className="container">Non-veg
-        <input type="radio" name="dietary" Value='Non-Veg' checked={dietary=== 'Non-Veg'} onChange={handelChange} />
+        <input type="radio" name="dietary" value='Non-Veg' checked={dietary=== 'Non-Veg'} onChange={handelChange} />
         <span className="checkmark"></span>
       </label>
 
       <label className="container">Vegan
-        <input type="radio" name="dietary" Value='Vegan' onChange={handelChange} />
+        <input type="radio" name="dietary" value='Vegan' onChange={handelChange} checked={dietary=== 'Vegan'} />
         <span className="checkmark"></span>
       </label>
 
       <label className="container">Pescetarians
-        <input type="radio" name="dietary" Value='Pescetarians' onChange={handelChange} />
+        <input type="radio" name="dietary" value='Pescetarians' onChange={handelChange} checked={dietary=== 'Pescetarians'} />
         <span className="checkmark"></span>
       </label>
     </div>

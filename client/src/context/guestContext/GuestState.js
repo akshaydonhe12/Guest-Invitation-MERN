@@ -9,7 +9,7 @@ import {
     REMOVE_GUEST,
     UPDATE_GUEST,
     EDIT_GUEST,
-    CLEAR_GUEST
+    CLEAR_EDIT
 } from '../types';
 
 const GuestState = (props) => {
@@ -92,7 +92,7 @@ const GuestState = (props) => {
   //CLEAR_GUEST
   const clearEdit = () => {
     dispatch({
-        type: CLEAR_GUEST,
+        type: CLEAR_EDIT,
     })
   }
 
@@ -124,6 +124,7 @@ const clearSearch = () => {
          guests: state.guests,
          filterGuest:state.filterGuest,
          search:state.search,
+         edit:state.edit,
          addGuest,
          removeGuest,
          updateGuest,
