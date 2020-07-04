@@ -51,7 +51,7 @@ const onsubmit = e => {
 
 return (
    <div className="invite-section">
-      <h1>Invite Here</h1>
+      <h1>{edit !== null ? 'Edit Guest' : 'Invite Here'}</h1>
       <form onSubmit={onsubmit}>
           <input type="text" placeholder="Name" name="name" value={name} onChange={handelChange} />
           <input type="text" placeholder="Phone" name="phone" value={phone} onChange={handelChange} />
@@ -74,7 +74,8 @@ return (
       </label>
     </div>
 
-        <input type="submit" value="Add Guest" className="btn" />
+        <input type="submit" value={edit !== null ? 'Update Guest' : 'Add Guest'} className="btn" />
+        {edit !== null ? < input onClick={clearEdit} value="Cancel" type="button" className="btn clear"/>: null}
     </form>
   </div>
   )
