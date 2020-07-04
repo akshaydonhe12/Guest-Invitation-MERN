@@ -6,7 +6,8 @@ import {
     SEARCH_GUEST,
     CLEAR_SEARCH,
     ADD_GUEST,
-    REMOVE_GUEST
+    REMOVE_GUEST,
+    UPDATE_GUEST
 } from '../types';
 
 const GuestState = (props) => {
@@ -48,7 +49,8 @@ const GuestState = (props) => {
         ]
     }
   const [state, dispatch] = useReducer(guestReducer, initialState);
-
+   
+  //ADD_GUEST
   const addGuest = (guest) => {
     guest.id = Date.now()
     guest.isconfirmed = false
@@ -59,6 +61,7 @@ const GuestState = (props) => {
     })
   }
 
+  //REMOVE_GUEST
   const removeGuest = (id) => {
       dispatch({
           type: REMOVE_GUEST,
@@ -66,12 +69,22 @@ const GuestState = (props) => {
       })
   }
 
+  //UPDATE_GUEST
+  const updateGuest = (guest) => {
+    dispatch({
+        type: UPDATE_GUEST,
+        payload: guest
+    })
+  }
+
+  //TOOGGLE
   const toggleFilter = () => {
       dispatch({
           type: TOGGLE_FILTER
       })
   }
 
+  //SEARCH_GUEST
   const searchGuest = (guest) => {
     dispatch({
         type: SEARCH_GUEST,
@@ -94,6 +107,7 @@ const clearSearch = () => {
          search:state.search,
          addGuest,
          removeGuest,
+         updateGuest,
          toggleFilter,
          searchGuest,
          clearSearch

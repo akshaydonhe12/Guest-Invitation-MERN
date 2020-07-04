@@ -3,5 +3,8 @@
  export const  CLEAR_SEARCH = 'CLEAR_SEARCH';
  export const ADD_GUEST = 'ADD_GUEST';
  export const REMOVE_GUEST = 'REMOVE_GUEST';
+ export const UPDATE_GUEST = 'UPDATE_GUEST';
+
+
 
 
