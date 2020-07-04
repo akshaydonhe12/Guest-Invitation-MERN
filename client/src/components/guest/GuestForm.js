@@ -2,7 +2,7 @@ import React, {useState, useContext, useEffect} from 'react';
 import GuestContext from '../../context/guestContext/guestContext';
 
 const GuestForm = () => {
-  const{addGuest, edit} = useContext(GuestContext)
+  const{addGuest, edit, updateGuest, clearEdit} = useContext(GuestContext)
 
   useEffect(()=>{
     if(edit !== null){
@@ -35,12 +35,18 @@ const handelChange = e => {
 const onsubmit = e => {
   e.preventDefault()
  {/* console.log(guest) */}
+
+ if(edit !== null) {
+   updateGuest(guest)
+   clearEdit()
+} else{
   addGuest(guest)
   setGuest({
     name:'',
     phone:'',
     dietary:'Non-Veg'
-  })
+   })
+  }
 }
 
 return (

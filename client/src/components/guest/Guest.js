@@ -2,7 +2,7 @@ import React, {useContext} from 'react'
 import GuestContext from "../../context/guestContext/guestContext";
 
 const Guest = ({guest}) => {
-  const {removeGuest, updateGuest, editGuest, clearEdit} = useContext(GuestContext)
+  const {removeGuest, updateGuest, editGuest, } = useContext(GuestContext)
   const { id, name, phone, dietary, isconfirmed} = guest
 
   const handleRemove = () => {
