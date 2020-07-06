@@ -2,10 +2,21 @@ const router  = require("express").Router();
 const {check, validationResult} = require('express-validator');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+const auth = require("../middleware/auth");
 
 
 //User Model
  const User = require('../models/User')
+
+ router.get('/',auth, async (req, res) => {
+    try{
+        const user = await User.findById(req.user.id).select("-password")
+        res.json(user)
+    }catch (error){
+        console.error(err.message)
+        res.status(500).send('Server Error')
+    }
+ })
 
 router.post('/',
 [
@@ -35,7 +46,7 @@ async(req, res)=> {
                 msg:'Invalid Credantials'
             })
         }
-        
+
         const payload = {
             user:{
                 id:user.id
