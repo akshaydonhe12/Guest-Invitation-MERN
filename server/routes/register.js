@@ -2,6 +2,9 @@ const router  = require("express").Router();
 const {check, validationResult} = require('express-validator');
 
 
+//User Model
+ const User = require('../models/User')
+
 router.post('/',
 [
     check ('name', 'Please provide a name').not().isEmpty(),
@@ -16,7 +19,6 @@ router.post('/',
             error: errors.array()
         })
     }
-    res.send('User Register Succesfully')
 
     const {name, email, password} = req.body
 })
