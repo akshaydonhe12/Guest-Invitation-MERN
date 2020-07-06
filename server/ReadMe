@@ -1,0 +1,6 @@
+  You can install nodejs and npm easily with apt install.
+
+      $ npm install
+      
+  # start server command
+    npm run server
