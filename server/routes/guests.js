@@ -15,6 +15,8 @@ router.get('/',auth, async(req, res)=> {
     }
 })
 
+// create Guest route
+
 router.post('/',auth,
 [
     check('name', 'Please provide a name').not().isEmpty(),
@@ -44,6 +46,8 @@ async(req, res) => {
     }
 })
 
+// delete route
+
 router.delete('/:id', auth, async(req, res) => {
     try {
         let guest = await Guest.findById(req.params.id)
@@ -60,9 +64,11 @@ router.delete('/:id', auth, async(req, res) => {
     }
 })
 
+// update route
+
 router.put('/:id', auth, async(req, res) => {
-    const{name, params, dietary, isconfirmed} = req.body
-    const updateGuest = {name, phone, dietary, isconfiremd}
+    const{name, phone, dietary, isconfirmed} = req.body
+    const updateGuest = {name, phone, dietary, isconfirmed}
 
     try {
         let guest = await Guest.findById(req.params.id)
