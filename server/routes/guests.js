@@ -60,7 +60,24 @@ router.delete('/:id', auth, async(req, res) => {
     }
 })
 
+router.put('/:id', auth, async(req, res) => {
+    const{name, params, dietary, isconfirmed} = req.body
+    const updateGuest = {name, phone, dietary, isconfiremd}
 
+    try {
+        let guest = await Guest.findById(req.params.id)
+        if(!guest){
+            return res.status(404).json({
+                msg:"Guest Not Found"
+            })
+        }
+        guest = await Guest.findByIdAndUpdate(req.params.id, {$set: updateGuest}, {new: true})
+        res.send(guest)
+    } catch (error) {
+        console.error(err.message)
+        res.status(500).send('Server Error')
+    }
+})
 
 
 module.exports= router
