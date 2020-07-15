@@ -9,7 +9,7 @@ app.use(express.json({extended: true}))
 
 app.use('/register', require('./routes/register'))
 app.use('/auth', require('./routes/auth'))
-app.use('/guest', require('./routes/auth'))
+app.use('/guests', require('./routes/guests'))
 
 
 
