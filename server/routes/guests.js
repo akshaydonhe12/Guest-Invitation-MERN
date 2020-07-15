@@ -44,6 +44,22 @@ async(req, res) => {
     }
 })
 
+router.delete('/:id', auth, async(req, res) => {
+    try {
+        let guest = await Guest.findById(req.params.id)
+        if(!guest){
+            return res.status(404).json({
+                msg:"Guest Not Found"
+            })
+        }
+        await Guest.findByIdAndRemove(req.params.id)
+        res.send('guest removed')
+    } catch (error) {
+        console.error(err.message)
+        res.status(500).send('Server Error')
+    }
+})
+
 
 
 
