@@ -1,17 +1,27 @@
 import React from 'react';
 import './App.css';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/layouts/Navbar';
 import Home from './components/pages/Home';
 import GuestState from './context/guestContext/GuestState';
+import Login from './components/pages/Login';
+import Register from './components/pages/Register';
+
 
 
 function App() {
   return (
   <GuestState>
+    <Router>
     <div>
       <Navbar/>
-      <Home />
+      <Switch>
+         <Route exact path='/' component={Home}/>
+         <Route exact path='/' component={Register}/>
+         <Route exact path='/' component={Login}/>
+      </Switch>
     </div>
+    </Router>
   </GuestState>
   );
 }
