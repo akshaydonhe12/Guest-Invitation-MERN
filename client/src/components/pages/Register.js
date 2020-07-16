@@ -9,8 +9,8 @@ const Register = () => {
              <input type="text" name="name" placeholder="name"/>
              <input type="email" name="email" placeholder="email"/>
              <input type="password" name="password" placeholder="password"/>
-             <input type="password2" name="password2" placeholder="confirm password"/>
-             <input type="submit" value="Sign Up"/>
+             <input type="password" name="password2" placeholder="confirm password"/>
+             <input type="submit" value="Sign Up" className="btn"/>
          </form>
          <div className="question">
              <p>Already have an account? {" "}<Link to='/login'>Login</Link></p>

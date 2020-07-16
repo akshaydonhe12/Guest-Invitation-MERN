@@ -8,10 +8,10 @@ const Login = () => {
          <form>
              <input type="email" name="email" placeholder="email"/>
              <input type="password" name="password" placeholder="password"/>
-             <input type="submit" value="Sign In"/>
+             <input type="submit" value="Sign In" className="btn"/>
          </form>
          <div className="question">
-             <p>Already have an account? {" "}<Link to='/login'>Sign Up</Link></p>
+             <p>Already have an account? {" "}<Link to='/register'>Sign Up</Link></p>
          </div>
     </div>
   )
