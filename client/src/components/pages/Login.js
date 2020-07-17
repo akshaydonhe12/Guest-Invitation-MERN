@@ -1,8 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
+import AuthContext from '../../context/authContext/authContext'
+
 import {Link} from 'react-router-dom'
 
 const Login = () => {
-
+    const {loginUser, userAuth, errors} = useContext(AuthContext)
     const [user, setUser] = useState({ email:'', password:''})
     const{ email, password }= user
 
@@ -12,7 +14,7 @@ const Login = () => {
 
     const submit = e =>{
         e.preventDefault()
-        console.log({ email, password})
+        loginUser({ email, password})
     }
 
   return (
@@ -24,6 +26,10 @@ const Login = () => {
              <input type="submit" value="Sign In" className="btn"/>
          </form>
          <div className="question">
+         {errors !== null && <button className="danger">
+                 {errors.msg ? errors.msg : errors.error[0].msg}
+                 <span>x</span>
+            </button>}
              <p>Don't have an account? {" "}<Link to='/register'>Sign Up</Link></p>
          </div>
     </div>

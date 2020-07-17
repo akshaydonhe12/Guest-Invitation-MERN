@@ -1,7 +1,9 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import AuthContext from '../../context/authContext/authContext'
 import {Link} from 'react-router-dom'
 
 const Register = () => {
+    const {registerUser, userAuth, errors} = useContext(AuthContext)
     const [user, setUser] = useState({name:'', email:'', password:'', password2:''})
     const{name, email, password, password2}= user
 
@@ -14,7 +16,7 @@ const Register = () => {
         if(password !== password2){
             console.log("password don't match")
         } else {
-            console.log({name, email, password})
+            registerUser({name, email, password})
         }
     }
 
@@ -29,6 +31,10 @@ const Register = () => {
              <input type="submit" value="Sign Up" className="btn"/>
          </form>
          <div className="question">
+             {errors !== null && <button className="danger">
+                 {errors.msg ? errors.msg : errors.error[0].msg}
+                 <span>x</span>
+            </button>}
              <p>Already have an account? {" "}<Link to='/login'>Login</Link></p>
          </div>
     </div>
