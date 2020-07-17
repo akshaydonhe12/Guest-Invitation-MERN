@@ -4,17 +4,19 @@ import AuthContext from '../../context/authContext/authContext'
 import {Link} from 'react-router-dom'
 
 const Login = () => {
-    const {loginUser, userAuth, errors} = useContext(AuthContext)
+    const {loginUser, userAuth, errors, clearError} = useContext(AuthContext)
     const [user, setUser] = useState({ email:'', password:''})
     const{ email, password }= user
 
     const handleChange = e => {
         setUser({...user, [e.target.name]: e.target.value})
+        clearError()
     }
 
     const submit = e =>{
         e.preventDefault()
         loginUser({ email, password})
+        clearError()
     }
 
   return (
@@ -28,7 +30,7 @@ const Login = () => {
          <div className="question">
          {errors !== null && <button className="danger">
                  {errors.msg ? errors.msg : errors.error[0].msg}
-                 <span>x</span>
+                 <span onClick={()=> clearError()}>x</span>
             </button>}
              <p>Don't have an account? {" "}<Link to='/register'>Sign Up</Link></p>
          </div>
