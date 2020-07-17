@@ -7,7 +7,8 @@ import {
     SUCCESS_LOGIN,
     FAIL_LOGIN,
     FAIL_REGISTER,
-    SET_ERROR
+    SET_ERROR,
+    CLEAR_ERROR
 } from '../types'
 
 const AuthState = (props) => {
@@ -78,13 +79,22 @@ const setError = err => {
     })
 }
 
+// Clear Error
+
+const clearError = ()=> {
+    dispatch({
+        type:CLEAR_ERROR,
+    })
+}
+
 return (
     <AuthContext.Provider value={{
         userAuth:state.userAuth,
         errors:state.errors,
         registerUser,
         loginUser,
-        setError
+        setError,
+        clearError
     }}>{props.children}</AuthContext.Provider>
   )
 }
