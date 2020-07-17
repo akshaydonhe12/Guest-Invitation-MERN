@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Navbar from './components/layouts/Navbar';
 import Home from './components/pages/Home';
 import GuestState from './context/guestContext/GuestState';
+import AuthState from './context/authContext/AuthState';
 import Login from './components/pages/Login';
 import Register from './components/pages/Register';
 
@@ -11,6 +12,7 @@ import Register from './components/pages/Register';
 
 function App() {
   return (
+    <AuthState>
   <GuestState>
     <Router>
     <div>
@@ -23,6 +25,7 @@ function App() {
     </div>
     </Router>
   </GuestState>
+  </AuthState>
   );
 }
 
