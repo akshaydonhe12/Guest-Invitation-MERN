@@ -1,10 +1,14 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import AuthContext from '../../context/authContext/authContext'
-
 import {Link} from 'react-router-dom'
 
-const Login = () => {
+const Login = (props) => {
     const {loginUser, userAuth, errors, clearError} = useContext(AuthContext)
+    useEffect(()=>{
+        if(userAuth){
+            props.history.push('/')
+        }
+    },[userAuth, props.history])
     const [user, setUser] = useState({ email:'', password:''})
     const{ email, password }= user
 

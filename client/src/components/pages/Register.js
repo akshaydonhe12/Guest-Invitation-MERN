@@ -1,9 +1,14 @@
-import React, {useState, useContext} from 'react';
+import React, {useState, useContext, useEffect, useReducer} from 'react';
 import AuthContext from '../../context/authContext/authContext'
 import {Link} from 'react-router-dom'
 
-const Register = () => {
+const Register = (props) => {
     const {registerUser, userAuth, errors, setError, clearError } = useContext(AuthContext)
+    useEffect(()=>{
+        if(userAuth){
+            props.history.push('/')
+        }
+    },[userAuth, props.history])
     const [user, setUser] = useState({name:'', email:'', password:'', password2:''})
     const{name, email, password, password2}= user
 
