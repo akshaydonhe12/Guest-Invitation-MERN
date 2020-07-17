@@ -2,7 +2,8 @@ import {
     SUCCESS_REGISTER,
     SUCCESS_LOGIN,
     FAIL_LOGIN,
-    FAIL_REGISTER
+    FAIL_REGISTER,
+    SET_ERROR
 } from '../types'
 
 export default (state, action) => {
@@ -21,6 +22,12 @@ export default (state, action) => {
                 ...state,
                 userAuth:null,
                 errors: action.payload
+            }
+        case SET_ERROR:
+            return{
+                ...state,
+                userAuth:null,
+                errors:action.payload
             }
     default:
         return state

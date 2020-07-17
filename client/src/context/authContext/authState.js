@@ -6,7 +6,8 @@ import {
     SUCCESS_REGISTER,
     SUCCESS_LOGIN,
     FAIL_LOGIN,
-    FAIL_REGISTER
+    FAIL_REGISTER,
+    SET_ERROR
 } from '../types'
 
 const AuthState = (props) => {
@@ -68,12 +69,22 @@ const loginUser = async userData  => {
        }
    }
 
+   // setError
+
+const setError = err => {
+    dispatch({
+        type:SET_ERROR,
+        payload:err
+    })
+}
+
 return (
     <AuthContext.Provider value={{
         userAuth:state.userAuth,
         errors:state.errors,
         registerUser,
-        loginUser
+        loginUser,
+        setError
     }}>{props.children}</AuthContext.Provider>
   )
 }
