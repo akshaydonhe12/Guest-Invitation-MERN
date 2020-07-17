@@ -30,14 +30,13 @@ export default (state, action) => {
     case SET_ERROR:
         return{
             ...state,
-            errors:null
+            errors:action.payload
         }
 
     case CLEAR_ERROR:
         return{
             ...state,
-            userAuth:null,
-            errors:action.payload
+            errors:null
         }
     default:
         return state
