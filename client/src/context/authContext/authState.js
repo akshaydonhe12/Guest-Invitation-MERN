@@ -43,11 +43,37 @@ try {
     }
 }
 
+//Login user
+
+
+const loginUser = async userData  => {
+    const config = {
+       header: {
+         'Content-Type':'application/json'
+       }
+   }
+   
+   try {
+       const res = await axios.post('/auth', userData, config)
+       dispatch({
+           type:SUCCESS_LOGIN,
+           payload: res.data
+       })
+   
+   } catch (err) {
+          dispatch({
+              type:FAIL_LOGIN,
+              payload:err.response.data
+          }) 
+       }
+   }
 
 return (
     <AuthContext.Provider value={{
         userAuth:state.userAuth,
-        errors:state.errors
+        errors:state.errors,
+        registerUser,
+        loginUser
     }}>{props.children}</AuthContext.Provider>
   )
 }
