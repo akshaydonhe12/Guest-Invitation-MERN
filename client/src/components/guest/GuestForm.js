@@ -34,7 +34,6 @@ const handelChange = e => {
 
 const onsubmit = e => {
   e.preventDefault()
- {/* console.log(guest) */}
 
  if(edit !== null) {
    updateGuest(guest)
