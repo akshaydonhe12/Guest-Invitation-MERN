@@ -1,13 +1,39 @@
-import React, {useContext} from 'react'
+import React, {useContext, Fragment} from 'react'
 import AuthContext from '../../context/authContext/authContext'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
-  const { logOut, clearError} = useContext(AuthContext)
+  const { logOut, clearError, userAuth} = useContext(AuthContext)
 
   const onLogout = () => {
     logOut()
     clearError()
   }
+
+const userLinks = (
+  <Fragment>
+    <li>Hello, Akshay</li>
+        <span className="sm-hide">|</span>
+        <li>
+          <a href="#!" onClick = {onLogout}>
+            <span className="sm-hide">Logout</span>
+          </a>
+        </li>
+  </Fragment>
+)
+
+const authLinks = (
+  <Fragment>
+    <li>
+      <Link to='/register'>Register</Link>
+    </li>
+    <span className="sm-hide">|</span>
+    <li>
+      <Link to='/login'>Login</Link>
+    </li>
+  </Fragment>
+)
+
   return (
     <div>
      <div className="navbar">
@@ -18,13 +44,7 @@ const Navbar = () => {
         <p>Made with MERN STACK</p>
       </div>
       <ul>
-        <li>Hello, Akshay</li>
-        <span className="sm-hide">|</span>
-        <li>
-          <a href="#!" onClick = {onLogout}>
-            <span className="sm-hide">Logout</span>
-          </a>
-        </li>
+        {userAuth ? userLinks : authLinks}
       </ul>
     </div>
     </div>
