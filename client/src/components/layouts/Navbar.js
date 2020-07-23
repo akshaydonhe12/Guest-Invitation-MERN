@@ -1,6 +1,13 @@
-import React from 'react'
+import React, {useContext} from 'react'
+import AuthContext from '../../context/authContext/authContext'
 
 const Navbar = () => {
+  const { logOut, clearError} = useContext(AuthContext)
+
+  const onLogout = () => {
+    logOut()
+    clearError()
+  }
   return (
     <div>
      <div className="navbar">
@@ -14,7 +21,7 @@ const Navbar = () => {
         <li>Hello, Akshay</li>
         <span className="sm-hide">|</span>
         <li>
-          <a href="#!">
+          <a href="#!" onClick = {onLogout}>
             <span className="sm-hide">Logout</span>
           </a>
         </li>
