@@ -18,6 +18,8 @@ const auth = require("../middleware/auth");
     }
  })
 
+ 
+
 router.post('/',
 [
     check('email', 'Please provide a email').isEmail(),

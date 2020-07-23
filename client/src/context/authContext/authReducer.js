@@ -5,11 +5,20 @@ import {
     FAIL_REGISTER,
     SET_ERROR,
     CLEAR_ERROR,
-    LOG_OUT
+    LOG_OUT,
+    SET_USER,
+    AUTH_ERROR
 } from '../types'
 
 export default (state, action) => {
   switch(action.type){
+    case SET_USER:
+        return {
+            ...state,
+            user:action.payload,
+            userAuth:true,
+            errors:null
+        }
 
     case SUCCESS_REGISTER:
     case SUCCESS_LOGIN:
@@ -23,6 +32,7 @@ export default (state, action) => {
     case FAIL_LOGIN:
     case FAIL_REGISTER:
     case LOG_OUT:
+    case AUTH_ERROR:
         localStorage.removeItem('token')
         return{
             ...state,
