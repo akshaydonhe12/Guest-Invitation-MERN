@@ -1,6 +1,7 @@
 import React, {useReducer} from 'react';
 import GuestContext from './guestContext';
 import guestReducer from './guestReducer';
+import axios from 'axios'
 import {
     TOGGLE_FILTER,
     SEARCH_GUEST,
@@ -9,7 +10,9 @@ import {
     REMOVE_GUEST,
     UPDATE_GUEST,
     EDIT_GUEST,
-    CLEAR_EDIT
+    CLEAR_EDIT,
+    GET_GUEST,
+    GUEST_ERROR
 } from '../types';
 
 const GuestState = (props) => {
@@ -17,43 +20,29 @@ const GuestState = (props) => {
         filterGuest: false,
         search:null,
         edit:null,
-
-        guests: [
-            {
-                id:1,
-                name: "Akshay Donhe",
-                phone: "98765848250",
-                dietary: "Non-Veg",
-                isconfirmed: true
-            },
-
-            {
-                id:2,
-                name: "Prashant Paddune",
-                phone: "98765848123",
-                dietary: "Pescetarians",
-                isconfirmed: true
-            },
-
-            {
-                id:3,
-                name: "Mihir Panchal",
-                phone: "98765848214",
-                dietary: "Vegan",
-                isconfirmed: false
-            },
-
-            {
-                id:4,
-                name: "Aryak Bodke",
-                phone: "98765848549",
-                dietary: "Non-Veg",
-                isconfirmed: false
-            },
-        ]
+        guests: [],
+        errors:null
     }
   const [state, dispatch] = useReducer(guestReducer, initialState);
-   
+
+
+   //get Guest
+
+    const getGuests = async() => {
+        try {
+            const res = await axios.get('/guests')
+            dispatch({
+                type:GET_GUEST,
+                payload:res.data
+            })
+        } catch (error) {
+            dispatch({
+             type:GUEST_ERROR,
+             payload:error.response.msg
+            })
+        }
+    }
+
   //ADD_GUEST
   const addGuest = (guest) => {
     guest.id = Date.now()
@@ -125,6 +114,7 @@ const clearSearch = () => {
          filterGuest:state.filterGuest,
          search:state.search,
          edit:state.edit,
+         getGuests,
          addGuest,
          removeGuest,
          updateGuest,

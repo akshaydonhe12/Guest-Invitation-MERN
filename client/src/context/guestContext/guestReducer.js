@@ -6,18 +6,26 @@ import {
     REMOVE_GUEST,
     UPDATE_GUEST,
     EDIT_GUEST,
-    CLEAR_EDIT
+    CLEAR_EDIT,
+    GET_GUEST,
+    GUEST_ERROR
 } from '../types';
 
 export default (state, {type, payload}) => {
     switch(type) {
-            case ADD_GUEST:
+                 case GET_GUEST:
+                    return{
+                        ...state,
+                        guests:payload
+                }
+
+                 case ADD_GUEST:
                     return {
                         ...state,
                          guests: [...state.guests, payload]
                      }
 
-            case REMOVE_GUEST:
+                case REMOVE_GUEST:
                      return {
                         ...state,
                         guests: state.guests.filter(guest => guest.id !== payload)
@@ -47,7 +55,12 @@ export default (state, {type, payload}) => {
                         ...state,
                         search: state.guests.filter(guest => guest.name.match(reg))
                    }
-        
+                case GUEST_ERROR:
+                    return{
+                        ...state,
+                        guests:[],
+                        errors:payload
+                    }
                 case CLEAR_SEARCH: 
                      return{
                      ...state,

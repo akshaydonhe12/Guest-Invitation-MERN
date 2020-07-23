@@ -7,7 +7,7 @@ import {
     CLEAR_ERROR,
     LOG_OUT,
     SET_USER,
-    AUTH_ERROR
+    AUTH_ERROR,
 } from '../types'
 
 export default (state, action) => {
