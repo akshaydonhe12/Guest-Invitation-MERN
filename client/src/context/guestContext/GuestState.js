@@ -44,14 +44,25 @@ const GuestState = (props) => {
     }
 
   //ADD_GUEST
-  const addGuest = (guest) => {
-    guest.id = Date.now()
-    guest.isconfirmed = false
-    dispatch({
+  const addGuest = async(guest) => {
+    
+    const config = {
+        'Content-Type': 'application/json'
+    }
+    try {
+        const res = await axios.post('/guests', guest, config)
+     dispatch({
         type:ADD_GUEST,
-        payload:guest
+        payload:res.data
 
     })
+    } catch (error) {
+        dispatch({
+            type:GUEST_ERROR,
+            payload:error.response.msg
+           })
+    }
+    
   }
 
   //REMOVE_GUEST
