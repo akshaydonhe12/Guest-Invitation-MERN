@@ -66,11 +66,20 @@ const GuestState = (props) => {
   }
 
   //REMOVE_GUEST
-  const removeGuest = (id) => {
-      dispatch({
-          type: REMOVE_GUEST,
-          payload:id
-      })
+  const removeGuest = async(id) => {
+      try {
+          await axios.delete(`/guests/${id}`)
+          dispatch({
+            type: REMOVE_GUEST,
+            payload:id
+        })
+      } catch (error) {
+        dispatch({
+            type:GUEST_ERROR,
+            payload:error.response.msg
+           })
+      }
+     
   }
 
   //UPDATE_GUEST
