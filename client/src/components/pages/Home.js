@@ -11,7 +11,7 @@ const Home = () => {
   const {getUser}= useContext(AuthContext)
   useEffect(()=>{
     getUser()
-    
+    // eslint-disable-next-line
   },[])
   return (
   <div className="app-container">

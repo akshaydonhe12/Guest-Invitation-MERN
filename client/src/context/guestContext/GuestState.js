@@ -83,11 +83,28 @@ const GuestState = (props) => {
   }
 
   //UPDATE_GUEST
-  const updateGuest = (guest) => {
-    dispatch({
-        type: UPDATE_GUEST,
-        payload: guest
-    })
+  const updateGuest = async(guest) => {
+
+    const config = {
+        headers:{
+            'Content-Type': 'application/json'
+        }
+    }
+    try {
+      const res =  await axios.put(`/guests/${guest._id}`, guest, config)
+        dispatch({
+            type: UPDATE_GUEST,
+            payload: res.data
+        })
+        getGuests()
+    } catch (error) {
+        dispatch({
+            type:GUEST_ERROR,
+            payload:error.response.msg
+           })
+    }
+
+   
   }
 
   //EDIT_GUEST

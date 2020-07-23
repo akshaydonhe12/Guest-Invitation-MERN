@@ -6,7 +6,7 @@ const url = process.env.URL
 
 const connectDB = async () => {
     try{
-        await mongoose.connect(url, {useNewUrlParser:true, useUnifiedTopology:true, useCreateIndex:true, useFindAndModify:true});
+        await mongoose.connect(url, {useNewUrlParser:true, useUnifiedTopology:true, useCreateIndex:true, useFindAndModify:true,useFindAndModify:false});
         console.log('connect to DB')
     } catch (err) {
         console.error(err.message)

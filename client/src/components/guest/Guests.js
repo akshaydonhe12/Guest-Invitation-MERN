@@ -7,6 +7,7 @@ const Guests = () => {
 
   useEffect(()=> {
     getGuests()
+    // eslint-disable-next-line
   },[])
 
   return (
