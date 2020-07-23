@@ -29,6 +29,7 @@ const GuestState = (props) => {
    //get Guest
 
     const getGuests = async() => {
+        
         try {
             const res = await axios.get('/guests')
             dispatch({
