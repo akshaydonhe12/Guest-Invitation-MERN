@@ -8,7 +8,8 @@ import {
     FAIL_LOGIN,
     FAIL_REGISTER,
     SET_ERROR,
-    CLEAR_ERROR
+    CLEAR_ERROR,
+    LOG_OUT
 } from '../types'
 
 const AuthState = (props) => {
@@ -70,6 +71,14 @@ const loginUser = async userData  => {
        }
    }
 
+   // Log Out User
+
+   const logOut = ()=> {
+       dispatch({
+           type: LOG_OUT
+       })
+   }
+
    // setError
 
 const setError = err => {
@@ -93,6 +102,7 @@ return (
         errors:state.errors,
         registerUser,
         loginUser,
+        logOut,
         setError,
         clearError
     }}>{props.children}</AuthContext.Provider>
